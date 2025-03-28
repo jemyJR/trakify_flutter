@@ -1,4 +1,4 @@
-package com.example.trakify_flutter
+package com.example.trakify
 
 import io.flutter.embedding.android.FlutterActivity
 

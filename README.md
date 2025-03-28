@@ -1,4 +1,4 @@
-# trakify_flutter
+# Trakify
 
 A new Flutter project.
 
