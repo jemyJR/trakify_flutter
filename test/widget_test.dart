@@ -7,13 +7,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:trakify_flutter/main.dart';
+import 'package:trakify/core/routing/app_router.dart';
+import 'package:trakify/core/routing/routes.dart';
+import 'package:trakify/trakify_app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(
+      TrakifyApp(appRouter: AppRouter(), initialRoute: Routes.onBoardingScreen),
+    );
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
