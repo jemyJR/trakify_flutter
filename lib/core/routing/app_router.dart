@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trakify/core/di/dependency_injection.dart';
+import 'package:trakify/features/home/ui/home_screen.dart';
+import 'package:trakify/features/login/logic/login_cubit.dart';
 import 'package:trakify/features/login/ui/login_screen.dart';
 import 'package:trakify/features/onboarding/ui/onboarding_screen.dart';
+import 'package:trakify/features/signup/logic/cubit/signup_cubit.dart';
 import 'package:trakify/features/signup/ui/signup_screen.dart';
 
 import 'routes.dart';
@@ -13,9 +18,23 @@ class AppRouter {
           builder: (context) => const OnBoardingScreen(),
         );
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (context) => const LoginScreen());
+        return MaterialPageRoute(
+          builder:
+              (context) => BlocProvider(
+                create: (context) => getIt<LoginCubit>(),
+                child: const LoginScreen(),
+              ),
+        );
       case Routes.signUpScreen:
-        return MaterialPageRoute(builder: (context) => const SignupScreen());
+        return MaterialPageRoute(
+          builder:
+              (context) => BlocProvider(
+                create: (context) => getIt<SignupCubit>(),
+                child: const SignupScreen(),
+              ),
+        );
+      case Routes.homeScreen:
+        return MaterialPageRoute(builder: (context) => HomeScreen());
     }
     return null;
   }

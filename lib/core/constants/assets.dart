@@ -2,6 +2,10 @@
 class Assets {
   Assets._();
   
+  /// Assets for animationLoading
+  /// assets/animation/loading.json
+  static const String animationLoading = "assets/animation/loading.json";
+
   /// Assets for fontsIBMPlexSansBold
   /// assets/fonts/IBMPlexSans-Bold.ttf
   static const String fontsIBMPlexSansBold = "assets/fonts/IBMPlexSans-Bold.ttf";

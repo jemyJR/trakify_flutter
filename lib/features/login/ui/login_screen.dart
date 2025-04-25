@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:trakify/core/constants/assets.dart';
 import 'package:trakify/core/helpers/spacing.dart';
-import 'package:trakify/core/theming/app_colors.dart';
-import 'package:trakify/core/theming/app_styles.dart';
 import 'package:trakify/core/widgets/auth_message_and_navigate.dart';
 import 'package:trakify/core/widgets/bg_shape.dart';
-import 'package:trakify/core/widgets/custom_button.dart';
-import 'package:trakify/core/widgets/custom_text_field.dart';
+import 'package:trakify/features/login/ui/widgets/login_bloc_listener.dart';
+import 'package:trakify/features/login/ui/widgets/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -25,30 +23,13 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   Image.asset(Assets.imagesLogoFullLogo),
                   verticalSpace(20),
-                  CustomTextField(
-                    title: 'Email',
-                    hintText: 'Enter your email',
-                    iconData: Icons.email,
-                  ),
-                  verticalSpace(20),
-                  CustomTextField(
-                    title: 'Password',
-                    hintText: 'Enter your password',
-                    iconData: Icons.lock,
-                    isPassword: true,
-                  ),
-                  verticalSpace(20),
-                  CustomButton(
-                    text: 'Login',
-                    textStyle: AppStyles.font16w600White,
-                    backgroundColor: AppColors.primary,
-                    onPressed: () {},
-                  ),
+                  const LoginForm(),
 
                   verticalSpace(10),
                   AuthMessageAndNavigate(
                     authMessageType: AuthMessageType.login,
                   ),
+                  const LoginBlocListener(),
                 ],
               ),
             ),

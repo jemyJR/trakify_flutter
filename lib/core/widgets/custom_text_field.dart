@@ -11,12 +11,18 @@ class CustomTextField extends StatefulWidget {
     required this.hintText,
     required this.iconData,
     this.isPassword = false,
+    this.validator,
+    this.controller,
+    this.onSaved,
   });
 
   final String? title;
   final String hintText;
   final IconData iconData;
   final bool isPassword;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
+  final void Function(String?)? onSaved;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -34,6 +40,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
         Text(widget.title ?? '', style: AppStyles.font16w500Black),
         verticalSpace(5),
         TextFormField(
+          controller: widget.controller,
+          onSaved: widget.onSaved,
+          validator: widget.validator,
           obscureText: widget.isPassword ? _isObscure : false,
           decoration: InputDecoration(
             prefixIcon: Icon(widget.iconData),
