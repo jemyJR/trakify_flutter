@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trakify/core/di/dependency_injection.dart';
-import 'package:trakify/features/home/ui/home_screen.dart';
+import 'package:trakify/core/widgets/bottom_nav_bar.dart';
+import 'package:trakify/features/add_habit/ui/add_habit_screen.dart';
 import 'package:trakify/features/login/logic/login_cubit.dart';
 import 'package:trakify/features/login/ui/login_screen.dart';
 import 'package:trakify/features/onboarding/ui/onboarding_screen.dart';
@@ -33,8 +34,12 @@ class AppRouter {
                 child: const SignupScreen(),
               ),
         );
-      case Routes.homeScreen:
-        return MaterialPageRoute(builder: (context) => HomeScreen());
+      case Routes.bottomNavScaffold:
+        return MaterialPageRoute(
+          builder: (context) => const BottomNavScaffold(),
+        );
+      case Routes.addHabitScreen:
+        return MaterialPageRoute(builder: (context) => const AddHabitScreen());
     }
     return null;
   }

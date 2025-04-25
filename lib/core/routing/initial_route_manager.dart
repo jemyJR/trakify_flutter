@@ -16,7 +16,7 @@ class InitialRouteManager {
         false;
 
     if (isUserLoggedIn) {
-      return Routes.homeScreen;
+      return Routes.bottomNavScaffold;
     } else if (isOnBoardingVisited) {
       return Routes.loginScreen;
     } else {
