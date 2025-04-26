@@ -5,6 +5,8 @@ import 'package:trakify/core/networking/api/dio_consumer.dart';
 import 'package:trakify/core/widgets/loading_widget.dart';
 import 'package:trakify/features/login/data/repos/login_repo.dart';
 import 'package:trakify/features/login/logic/login_cubit.dart';
+import 'package:trakify/features/profile/data/repo/profile_repo.dart';
+import 'package:trakify/features/profile/logic/profile_cubit.dart';
 import 'package:trakify/features/signup/data/repos/signup_repo.dart';
 import 'package:trakify/features/signup/logic/cubit/signup_cubit.dart';
 
@@ -37,4 +39,8 @@ Future<void> setupGetIt() async {
   // Register LoginCubit
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
+
+  // Register ProfileCubit
+  getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
+  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
 }

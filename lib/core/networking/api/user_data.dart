@@ -21,3 +21,8 @@ Future<void> saveUserId(String userId) async {
     value: userId,
   );
 }
+
+Future<void> removeUserData() async {
+  await getIt<CacheHelper>().removeSecuredData(key: ApiKey.token);
+  await getIt<CacheHelper>().removeSecuredData(key: AppConstants.userId);
+}

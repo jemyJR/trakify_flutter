@@ -35,6 +35,9 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   flutter_secure_storage: ^9.2.4
   animated_bottom_navigation_bar: ^1.4.0
+  font_awesome_flutter: ^10.8.0
+  cached_network_image: ^3.4.1
+  skeletonizer: ^1.4.3
 
 flutter_launcher_icons:
   android: "app_icon"

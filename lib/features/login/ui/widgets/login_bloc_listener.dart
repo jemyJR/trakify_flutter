@@ -28,7 +28,7 @@ class LoginBlocListener extends StatelessWidget {
             key: AppConstants.isUserLoggedIn,
             value: true,
           );
-          context.pushReplacementNamed(Routes.homeScreen);
+          context.pushReplacementNamed(Routes.bottomNavScaffold);
         } else if (state is LoginFailure) {
           loadingService.hideLoading();
           customSnackBar(context, state.errorMessage);

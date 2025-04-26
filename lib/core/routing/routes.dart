@@ -8,4 +8,6 @@ class Routes {
   static const String profileScreen = '/profileScreen';
   static const String bottomNavScaffold = '/bottomNavScaffold';
   static const String addHabitScreen = '/addHabitScreen';
+  static const String editProfile = '/editProfile';
+  static const String changePassword = '/changePassword';
 }

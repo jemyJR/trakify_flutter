@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trakify/core/di/dependency_injection.dart';
 import 'package:trakify/core/widgets/bottom_nav_bar.dart';
 import 'package:trakify/features/add_habit/ui/add_habit_screen.dart';
+import 'package:trakify/features/change_password/ui/change_password_screen.dart';
+import 'package:trakify/features/edit_profile/ui/edit_profile_screen.dart';
 import 'package:trakify/features/login/logic/login_cubit.dart';
 import 'package:trakify/features/login/ui/login_screen.dart';
 import 'package:trakify/features/onboarding/ui/onboarding_screen.dart';
@@ -40,6 +42,14 @@ class AppRouter {
         );
       case Routes.addHabitScreen:
         return MaterialPageRoute(builder: (context) => const AddHabitScreen());
+      case Routes.editProfile:
+        return MaterialPageRoute(
+          builder: (context) => const EditProfileScreen(),
+        );
+      case Routes.changePassword:
+        return MaterialPageRoute(
+          builder: (context) => const ChangePasswordScreen(),
+        );
     }
     return null;
   }

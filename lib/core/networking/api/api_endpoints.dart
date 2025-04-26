@@ -1,9 +1,14 @@
+import 'package:trakify/core/networking/api/user_data.dart';
+
 class ApiEndPoints {
   static const String apiBaseUrl =
       'https://trakify-production.up.railway.app/api/v1/';
 
   static const String login = 'auth/login/';
   static const String signup = 'auth/register/';
+  static Future<String> profile() async {
+    return 'users/${await getUserId()}/';
+  }
 }
 
 class ApiKey {
