@@ -3,6 +3,10 @@ import 'package:get_it/get_it.dart';
 import 'package:trakify/core/networking/api/api_consumer.dart';
 import 'package:trakify/core/networking/api/dio_consumer.dart';
 import 'package:trakify/core/widgets/loading_widget.dart';
+import 'package:trakify/features/change_password/data/repos/change_password_repo.dart';
+import 'package:trakify/features/change_password/logic/profile_cubit.dart';
+import 'package:trakify/features/edit_profile/data/repos/edit_profile_repo.dart';
+import 'package:trakify/features/edit_profile/logic/edit_profile_cubit.dart';
 import 'package:trakify/features/login/data/repos/login_repo.dart';
 import 'package:trakify/features/login/logic/login_cubit.dart';
 import 'package:trakify/features/profile/data/repo/profile_repo.dart';
@@ -43,4 +47,16 @@ Future<void> setupGetIt() async {
   // Register ProfileCubit
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+
+  // Register ChangePasswordCubit
+  getIt.registerLazySingleton<ChangePasswordRepo>(
+    () => ChangePasswordRepo(getIt()),
+  );
+  getIt.registerFactory<ChangePasswordCubit>(
+    () => ChangePasswordCubit(getIt()),
+  );
+
+  // Register EditProfileCubit
+  getIt.registerLazySingleton<EditProfileRepo>(() => EditProfileRepo(getIt()));
+  getIt.registerFactory<EditProfileCubit>(() => EditProfileCubit(getIt()));
 }

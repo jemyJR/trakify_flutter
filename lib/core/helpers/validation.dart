@@ -43,3 +43,28 @@ String? validateEmail(BuildContext context, String? value) {
   }
   return null;
 }
+
+String? validateEmailOptional(BuildContext context, String? value) {
+  if (value != null && value.isNotEmpty) {
+    String pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+    RegExp regExp = RegExp(pattern);
+    if (!regExp.hasMatch(value)) {
+      return "Please enter a valid email address";
+    }
+  }
+  return null;
+}
+
+String? validateNameOptional(BuildContext context, String? value) {
+  String pattern = r'^[a-zA-Z\u0600-\u06FF\s]+$';
+  String numberPattern = r'[0-9\u0660-\u0669\u06F0-\u06F9]';
+  RegExp regExp = RegExp(pattern);
+  RegExp numberRegExp = RegExp(numberPattern);
+
+  if (value != null && value.isNotEmpty) {
+    if (!regExp.hasMatch(value) || numberRegExp.hasMatch(value)) {
+      return "Please enter a valid name (Arabic or English letters only)";
+    }
+  }
+  return null;
+}

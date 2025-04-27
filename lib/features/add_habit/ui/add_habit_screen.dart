@@ -10,10 +10,7 @@ class AddHabitScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Add your new habit here!'),
-            ElevatedButton(onPressed: () {}, child: const Text('Save Habit')),
-          ],
+          children: [const Text('Add your new habit here!')],
         ),
       ),
     );

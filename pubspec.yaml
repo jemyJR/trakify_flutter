@@ -38,6 +38,9 @@ dependencies:
   font_awesome_flutter: ^10.8.0
   cached_network_image: ^3.4.1
   skeletonizer: ^1.4.3
+  image_picker: ^1.1.2
+  mime: ^2.0.0
+  http_parser: ^4.1.2
 
 flutter_launcher_icons:
   android: "app_icon"

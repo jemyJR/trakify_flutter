@@ -9,11 +9,16 @@ class ApiEndPoints {
   static Future<String> profile() async {
     return 'users/${await getUserId()}/';
   }
+
+  static const String changePassword = 'auth/change-password/';
 }
 
 class ApiKey {
   //! Errors keys
   static const String errorMessage = 'message';
+
+  //! Response keys
+  static const String message = 'message';
 
   //! Headers keys
   static const String acceptLanguage = 'Accept-Language';
@@ -30,4 +35,8 @@ class ApiKey {
 
   //! Token keys
   static const String token = 'accessToken';
+
+  //! Profile keys
+  static const String oldPassword = 'oldPassword';
+  static const String newPassword = 'newPassword';
 }

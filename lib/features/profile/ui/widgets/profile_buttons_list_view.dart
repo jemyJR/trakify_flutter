@@ -7,7 +7,9 @@ import 'package:trakify/features/profile/data/models/profile_button_data_model.d
 import 'package:trakify/features/profile/ui/widgets/profile_button.dart';
 
 class ProfileButtonsListView extends StatelessWidget {
-  const ProfileButtonsListView({super.key});
+  const ProfileButtonsListView({super.key, this.onEditProfileTap});
+
+  final VoidCallback? onEditProfileTap;
 
   @override
   Widget build(BuildContext context) {
@@ -17,23 +19,23 @@ class ProfileButtonsListView extends StatelessWidget {
       itemCount: profileButtons.length,
       itemBuilder: (context, index) {
         final button = profileButtons[index];
-        return _buildProfileButton(button);
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ProfileButton(
+              title: button.title,
+              icon: button.icon,
+              textStyle: button.textStyle,
+              routeName: button.routeName,
+              onTap:
+                  button.routeName == Routes.editProfile
+                      ? onEditProfileTap
+                      : null,
+            ),
+            verticalSpace(20),
+          ],
+        );
       },
-    );
-  }
-
-  Widget _buildProfileButton(ProfileButtonDataModel button) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        ProfileButton(
-          title: button.title,
-          icon: button.icon,
-          textStyle: button.textStyle,
-          routeName: button.routeName,
-        ),
-        verticalSpace(20),
-      ],
     );
   }
 }
